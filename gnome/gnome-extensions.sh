@@ -13,8 +13,11 @@ fi
 
 EXTENSIONS=(
   "tactile@lundal.io"
-  "just-perfection-desktop@just-perfection"
   "lockkeys@vaina.lt"
+  "vicinae@dagimg-dot"
+  "no-overview@fthx"
+  "dock-ng@ochi12.github.com"
+  "windowIsReady_Remover@nunofarruca@gmail.com"
   "rounded-window-corners@fxgn"
   "AlphabeticalAppGrid@stuarthayhurst"
   "vertical-app-grid@lublst.github.io"
