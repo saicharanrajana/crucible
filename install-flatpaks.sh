@@ -1,3 +1,11 @@
+#!/bin/bash
+
+# Check if flatpak is installed, install it if not
+if ! command -v flatpak &> /dev/null; then
+  echo "Flatpak not found. Installing..."
+  sudo pacman -S --needed --noconfirm flatpak
+fi
+
 FLATPAKS=(
   "org.onlyoffice.desktopeditors"
   "io.github.diegopvlk.Cine"

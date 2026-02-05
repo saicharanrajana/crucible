@@ -14,9 +14,11 @@ EOF
 
 # Parse command line arguments
 DEV_ONLY=false
+SKIP_GIT_SETUP=false
 while [[ "$#" -gt 0 ]]; do
   case $1 in
     --dev-only) DEV_ONLY=true; shift ;;
+    --skip-git-setup) SKIP_GIT_SETUP=true; shift ;;
     *) echo "Unknown parameter: $1"; exit 1 ;;
   esac
 done
@@ -60,7 +62,7 @@ if ! command -v yay &> /dev/null; then
     rm -rf yay
   fi
 
-  git clone https://aur.archlinux.org/yay.git
+  git clone https://aur.archlinux.org/yay.git || { echo "Failed to clone yay repository"; exit 1; }
 
   cd yay
   echo "building yay.... yaaaaayyyyy"
@@ -96,17 +98,6 @@ else
   echo "Installing fonts..."
   install_packages "${FONTS[@]}"
   
-  # Enable services
-  echo "Configuring services..."
-  for service in "${SERVICES[@]}"; do
-    if ! systemctl is-enabled "$service" &> /dev/null; then
-      echo "Enabling $service..."
-      sudo systemctl enable "$service"
-    else
-      echo "$service is already enabled"
-    fi
-  done
-  
   # Install gnome specific things to make it like a tiling WM
   echo "Installing Gnome extensions..."
   . gnome/gnome-extensions.sh
@@ -119,6 +110,11 @@ else
 
   # Install and setup docker
   . install-docker.sh
+fi
+
+# Run git and SSH setup (unless skipped)
+if [[ "$SKIP_GIT_SETUP" != true ]]; then
+  . git-ssh-setup.sh
 fi
 
 echo "Setup complete! You may want to reboot your system."

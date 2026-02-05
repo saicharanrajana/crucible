@@ -6,7 +6,7 @@ echo "Setting up Docker (Arch Linux)..."
 # Install Docker if missing
 if ! command -v docker >/dev/null 2>&1; then
   echo "Docker not found. Installing..."
-  sudo pacman -S --needed docker
+  sudo pacman -S --needed --noconfirm docker
 fi
 
 # Docker daemon config
