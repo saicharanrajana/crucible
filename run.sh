@@ -7,7 +7,7 @@ print_logo() {
    / ____/______  _______(_) /_  / /__   
   / /   / ___/ / / / ___/ / __ \/ / _ \  
  / /___/ /  / /_/ / /__/ / /_/ / /  __/  Arch Linux System Crafting Tool
- \____/_/   \__,_/\___/_/_.___/_/\___/   by: typecraft
+ \____/_/   \__,_/\___/_/_.___/_/\___/   by: charan
 
 EOF
 }
@@ -87,14 +87,8 @@ else
   echo "Installing development tools..."
   install_packages "${DEV_TOOLS[@]}"
   
-  echo "Installing system maintenance tools..."
-  install_packages "${MAINTENANCE[@]}"
-  
   echo "Installing desktop environment..."
   install_packages "${DESKTOP[@]}"
-  
-  echo "Installing desktop environment..."
-  install_packages "${OFFICE[@]}"
   
   echo "Installing media packages..."
   install_packages "${MEDIA[@]}"
@@ -118,8 +112,6 @@ else
   . gnome/gnome-extensions.sh
   echo "Setting Gnome hotkeys..."
   . gnome/gnome-hotkeys.sh
-  echo "Configuring Gnome..."
-  . gnome/gnome-settings.sh
   
   # Some programs just run better as flatpaks. Like discord/spotify
   echo "Installing flatpaks (like discord and spotify)"

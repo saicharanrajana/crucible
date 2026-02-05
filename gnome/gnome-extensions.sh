@@ -14,11 +14,16 @@ fi
 EXTENSIONS=(
   "tactile@lundal.io"
   "just-perfection-desktop@just-perfection"
-  "blur-my-shell@aunetx"
+  "lockkeys@vaina.lt"
+  "rounded-window-corners@fxgn"
+  "AlphabeticalAppGrid@stuarthayhurst"
+  "vertical-app-grid@lublst.github.io"
+  "pinned-apps-in-appgrid@brunosilva.io"
+  "legacyschemeautoswitcher@joshimukul29.gmail.com"
+  "gnome-ui-tune@itstime.tech"
+  "touchpad-gesture-customization@coooolapps.com"
   "space-bar@luchrioh"
-  "undecorate@sun.wxg@gmail.com"
   "tophat@fflewddur.github.io"
-  "switcher@landau.fi"
 )
 
 for ext in "${EXTENSIONS[@]}"; do
@@ -30,5 +35,3 @@ for ext in "${EXTENSIONS[@]}"; do
   fi
 done
 
-# Now load settings from dconf file
-dconf load /org/gnome/shell/extensions/ < "$SCRIPT_DIR/gnome-settings.dconf"
