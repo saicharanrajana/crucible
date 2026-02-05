@@ -116,6 +116,9 @@ else
   # Some programs just run better as flatpaks. Like discord/spotify
   echo "Installing flatpaks (like discord and spotify)"
   . install-flatpaks.sh
+
+  # Install and setup docker
+  . install-docker.sh
 fi
 
 echo "Setup complete! You may want to reboot your system."
