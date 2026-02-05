@@ -24,10 +24,17 @@ EOF
 # Enable and start Docker
 sudo systemctl enable --now docker
 
+# Verify Docker is running
+if ! systemctl is-active --quiet docker; then
+  echo "WARNING: Docker service failed to start"
+  exit 1
+fi
+
 # Add user to docker group
-if ! groups "$USER" | grep -q docker; then
-  sudo usermod -aG docker "$USER"
-  echo "Added $USER to docker group (log out/in required)"
+ACTUAL_USER="${SUDO_USER:-$USER}"
+if ! groups "$ACTUAL_USER" | grep -q docker; then
+  sudo usermod -aG docker "$ACTUAL_USER"
+  echo "Added $ACTUAL_USER to docker group (log out/in required)"
 fi
 
 echo "Docker setup complete."

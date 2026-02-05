@@ -103,9 +103,14 @@ else
   . gnome/gnome-extensions.sh
   echo "Setting Gnome hotkeys..."
   . gnome/gnome-hotkeys.sh
+  echo "Configuring Gnome theming..."
+  . gnome/gnome-theming.sh
+
+  # Enable vicinae service
+  systemctl --user enable vicinae --now
   
-  # Some programs just run better as flatpaks. Like discord/spotify
-  echo "Installing flatpaks (like discord and spotify)"
+  # Some programs just run better as flatpaks.
+  echo "Installing flatpaks"
   . install-flatpaks.sh
 
   # Install and setup docker
