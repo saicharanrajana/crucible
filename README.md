@@ -48,3 +48,6 @@ This script automates the boring stuff:
 - Internet connection
 - Run as regular user (script uses sudo when needed)
 
+## Credits
+
+Forked from [typecraft-dev/crucible](https://github.com/typecraft-dev/crucible) and customized to my liking.
