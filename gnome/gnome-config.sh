@@ -50,4 +50,18 @@ else
   echo "Warning: wallpaper.png not found in gnome/ folder"
 fi
 
-echo "GNOME theming setup complete!"
+# Set default monospace font
+echo "Setting JetBrains Mono Nerd Font as default monospace font..."
+gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 11'
+
+# Configure sleep and lid behavior
+echo "Configuring sleep and lid behavior..."
+
+# Configure systemd-logind to ignore lid close
+sudo mkdir -p /etc/systemd/logind.conf.d
+echo -e "[Login]\nHandleLidSwitch=ignore\nHandleLidSwitchExternalPower=ignore\nHandleLidSwitchDocked=ignore" | sudo tee /etc/systemd/logind.conf.d/lid-ignore.conf >/dev/null
+
+# Restart systemd-logind to apply changes
+sudo systemctl restart systemd-logind
+
+echo "GNOME configuration complete!"

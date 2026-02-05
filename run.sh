@@ -103,8 +103,8 @@ else
   . gnome/gnome-extensions.sh
   echo "Setting Gnome hotkeys..."
   . gnome/gnome-hotkeys.sh
-  echo "Configuring Gnome theming..."
-  . gnome/gnome-theming.sh
+  echo "Configuring Gnome..."
+  . gnome/gnome-config.sh
 
   # Enable vicinae service
   systemctl --user enable vicinae --now
@@ -115,6 +115,12 @@ else
 
   # Install and setup docker
   . install-docker.sh
+fi
+
+# Run dotfiles setup
+if [[ "$DEV_ONLY" != true ]]; then
+  echo "Setting up dotfiles..."
+  . dotfiles-setup.sh
 fi
 
 # Run git and SSH setup (unless skipped)
