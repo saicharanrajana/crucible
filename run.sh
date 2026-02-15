@@ -106,8 +106,6 @@ else
   echo "Configuring Gnome..."
   . gnome/gnome-config.sh
 
-  # Enable vicinae service
-  systemctl --user enable vicinae --now
   
   # Some programs just run better as flatpaks.
   echo "Installing flatpaks"

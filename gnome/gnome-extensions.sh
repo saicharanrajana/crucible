@@ -14,7 +14,6 @@ fi
 EXTENSIONS=(
   "tactile@lundal.io"
   "lockkeys@vaina.lt"
-  "vicinae@dagimg-dot"
   "no-overview@fthx"
   "dock-ng@ochi12.github.com"
   "windowIsReady_Remover@nunofarruca@gmail.com"
@@ -24,7 +23,6 @@ EXTENSIONS=(
   "pinned-apps-in-appgrid@brunosilva.io"
   "legacyschemeautoswitcher@joshimukul29.gmail.com"
   "gnome-ui-tune@itstime.tech"
-  "touchpad-gesture-customization@coooolapps.com"
   "space-bar@luchrioh"
   "tophat@fflewddur.github.io"
 )

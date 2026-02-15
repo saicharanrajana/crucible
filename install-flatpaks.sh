@@ -11,6 +11,7 @@ FLATPAKS=(
   "io.github.diegopvlk.Cine"
   "org.qbittorrent.qBittorrent"
   "us.zoom.Zoom"
+  "com.mattjakeman.ExtensionManager"
 )
 
 for pak in "${FLATPAKS[@]}"; do

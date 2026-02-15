@@ -54,6 +54,18 @@ fi
 echo "Setting JetBrains Mono Nerd Font as default monospace font..."
 gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 11'
 
+# Enable fractional scaling
+echo "Enabling fractional scaling..."
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+
+# Set text scaling to 125%
+echo "Setting text scaling to 1.25..."
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.25
+
+# Set ghostty as default terminal
+echo "Setting ghostty as default terminal..."
+gsettings set org.gnome.desktop.default-applications.terminal exec 'ghostty'
+
 # Configure sleep and lid behavior
 echo "Configuring sleep and lid behavior..."
 
@@ -62,6 +74,6 @@ sudo mkdir -p /etc/systemd/logind.conf.d
 echo -e "[Login]\nHandleLidSwitch=ignore\nHandleLidSwitchExternalPower=ignore\nHandleLidSwitchDocked=ignore" | sudo tee /etc/systemd/logind.conf.d/lid-ignore.conf >/dev/null
 
 # Restart systemd-logind to apply changes
-sudo systemctl restart systemd-logind
+# sudo systemctl restart systemd-logind
 
 echo "GNOME configuration complete!"
