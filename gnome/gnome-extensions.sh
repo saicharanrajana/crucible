@@ -25,6 +25,8 @@ EXTENSIONS=(
   "gnome-ui-tune@itstime.tech"
   "space-bar@luchrioh"
   "tophat@fflewddur.github.io"
+  "appindicatorsupport@rgcjonas.gmail.com"
+  "vicinae@dagimg-dot"
 )
 
 for ext in "${EXTENSIONS[@]}"; do
